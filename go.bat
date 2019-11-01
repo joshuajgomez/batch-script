@@ -29,15 +29,15 @@ IF %option%==dm (
 			SET dest=%source%%ps%
 		) ELSE (
 			:: Invalid arguments. Print help info
-			ECHO Invalid argument: %option%
+			ECHO Invalid argument: "%option%"
 			@ECHO:
 			ECHO To navigate to project folders, use: go ^<option^>
 			@ECHO:
-			ECHO Available destinations are:
+			ECHO Available paths are:
 			@ECHO:
-			ECHO dm 	 %dm%
-			ECHO ph 	 %ph%
-			ECHO ps 	 %ps%
+			ECHO dm 	 %source%%dm%
+			ECHO ph 	 %source%%ph%
+			ECHO ps 	 %source%%ps%
 			@ECHO:
 			GOTO EXIT
 		)

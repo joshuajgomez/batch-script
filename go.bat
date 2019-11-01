@@ -1,15 +1,16 @@
 @ECHO OFF
 
-REM Creating a Newline variable (the two blank lines are required!)
-
 SET source=C:\Users\1020593\source\vendor\
 
+:: Set path to projects
 SET dm=quest\Phone\DeviceManagerService\
 SET ph=quest\Phone\PhoneHMI\
 SET ps=quest\Phone\PhoneService\
 
+:: Take arguments
 SET option=%1
 
+:: Set default destination path
 SET dest=%source%%dm%
 
 :: If no arguments, proceed with default option
@@ -27,7 +28,7 @@ IF %option%==dm (
 			:: Goto PhoneService
 			SET dest=%source%%ps%
 		) ELSE (
-			:: Invalid arguments
+			:: Invalid arguments. Print help info
 			ECHO Invalid argument: %option%
 			@ECHO:
 			ECHO To navigate to project folders, use: go ^<option^>
@@ -43,13 +44,13 @@ IF %option%==dm (
 	)
 )
 
-
+:: Navigate to path
 :DEFAULT
 ECHO Going to %dest%
 @ECHO:
 CD %dest%
 
-
+:: Exit without navigation
 :EXIT
 
 

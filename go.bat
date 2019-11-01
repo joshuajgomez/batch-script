@@ -3,41 +3,42 @@
 SET source=C:\Users\1020593\source\vendor\
 
 :: Set path to projects
-SET dm=quest\Phone\DeviceManagerService\
-SET ph=quest\Phone\PhoneHMI\
-SET ps=quest\Phone\PhoneService\
+SET dm=%source%quest\Phone\DeviceManagerService\
+SET ph=%source%quest\Phone\PhoneHMI\
+SET ps=%source%quest\Phone\PhoneService\
 
 :: Take arguments
 SET option=%1
 
 :: Set default destination path
-SET dest=%source%%dm%
+SET dest=%dm%
 
 :: If no arguments, proceed with default option
 IF [%option%]==[] GOTO DEFAULT
 	 
 IF %option%==dm (
 	:: Goto DeviceManagerService
-	SET dest=%source%%dm%
+	SET dest=%dm%
 ) ELSE (
 	IF %option%==ph (
 		:: Goto PhoneHMI
-		SET dest=%source%%ph%
+		SET dest=%ph%
 	) ELSE (
 		IF %option%==ps (
 			:: Goto PhoneService
-			SET dest=%source%%ps%
+			SET dest=%ps%
 		) ELSE (
 			:: Invalid arguments. Print help info
-			ECHO Invalid argument: "%option%"
+			ECHO go: Invalid argument: "%option%"
 			@ECHO:
 			ECHO To navigate to project folders, use: go ^<option^>
 			@ECHO:
-			ECHO Available paths are:
+			ECHO Available options are:
 			@ECHO:
-			ECHO dm 	 %source%%dm%
-			ECHO ph 	 %source%%ph%
-			ECHO ps 	 %source%%ps%
+			ECHO dm 	    %dm%
+			ECHO ph 	    %ph%
+			ECHO ps 	    %ps%
+			ECHO ^<empty^>     Same as 'dm'
 			@ECHO:
 			GOTO EXIT
 		)

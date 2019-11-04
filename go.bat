@@ -1,6 +1,7 @@
 @ECHO OFF
 
 SET source=C:\Users\1020593\source\vendor\
+SET script_dir=C:\Users\1020593\batch-script\
 
 :: Set path to projects
 SET dm=%source%quest\Phone\DeviceManagerService\
@@ -28,19 +29,25 @@ IF %option%==dm (
 			:: Goto PhoneService
 			SET dest=%ps%
 		) ELSE (
-			:: Invalid arguments. Print help info
-			ECHO go: Invalid argument: "%option%"
-			@ECHO:
-			ECHO To navigate to project folders, use: go ^<option^>
-			@ECHO:
-			ECHO Available options are:
-			@ECHO:
-			ECHO dm 	    %dm%
-			ECHO ph 	    %ph%
-			ECHO ps 	    %ps%
-			ECHO ^<empty^>     Same as 'dm'
-			@ECHO:
-			GOTO EXIT
+			IF %option%==dev (
+				:: Goto Scripts directory
+				SET dest=%script_dir%
+			) ELSE (
+				:: Invalid arguments. Print help info
+				ECHO go: Invalid argument: "%option%"
+				@ECHO:
+				ECHO To navigate to project folders, use: go ^<option^>
+				@ECHO:
+				ECHO Available options are:
+				@ECHO:
+				ECHO dm 	    %dm%
+				ECHO ph 	    %ph%
+				ECHO ps 	    %ps%
+				ECHO dev 	    %script_dir%
+				ECHO ^<empty^>     Same as 'dm'
+				@ECHO:
+				GOTO EXIT
+			)
 		)
 	)
 )
@@ -53,17 +60,3 @@ CD %dest%
 
 :: Exit without navigation
 :EXIT
-
-
-
-
-
-
-
-
-
-
-
-
-
-

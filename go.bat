@@ -21,42 +21,51 @@ IF %option%==dm (
 	:: Goto DeviceManagerService
 	SET dest=%dm%
 ) ELSE (
-	IF %option%==ph (
-		:: Goto PhoneHMI
-		SET dest=%ph%
-	) ELSE (
-		IF %option%==ps (
-			:: Goto PhoneService
-			SET dest=%ps%
-		) ELSE (
-			IF %option%==dev (
-				:: Goto Scripts directory
-				SET dest=%script_dir%
-			) ELSE (
-				:: Invalid arguments. Print help info
-				ECHO go: Invalid argument: "%option%"
-				@ECHO:
-				ECHO To navigate to project folders, use: go ^<option^>
-				@ECHO:
-				ECHO Available options are:
-				@ECHO:
-				ECHO dm 	    %dm%
-				ECHO ph 	    %ph%
-				ECHO ps 	    %ps%
-				ECHO dev 	    %script_dir%
-				ECHO ^<empty^>     Same as 'dm'
-				@ECHO:
-				GOTO EXIT
-			)
-		)
-	)
-)
+IF %option%==ph (
+	:: Goto PhoneHMI
+	SET dest=%ph%
+) ELSE (
+IF %option%==ps (
+	:: Goto PhoneService
+	SET dest=%ps%
+) ELSE (
+IF %option%==dev (
+	:: Goto Scripts directory
+	SET dest=%script_dir%
+) ELSE (
+IF %option%==--help (
+	:: Print help info
+	GOTO HELP
+) ELSE (
+	:: Invalid arguments. Print help info
+	ECHO go: Invalid argument: "%option%"
+	GOTO HELP
+)))))
 
 :: Navigate to path
 :DEFAULT
 ECHO Going to %dest%
 @ECHO:
 CD %dest%
+GOTO EXIT
 
-:: Exit without navigation
+:: Print help message
+:HELP
+@ECHO:
+ECHO usage: go ^<option^>
+@ECHO:
+ECHO Available options are:
+@ECHO:
+ECHO dm 	    %dm%
+ECHO ph 	    %ph%
+ECHO ps 	    %ps%
+ECHO dev 	    %script_dir%
+ECHO ^<empty^>     Same as 'dm'
+@ECHO:
+ECHO -------------------------------
+ECHO go = Navigate to folders easily 
+ECHO -------------------------------
+@ECHO:
+
+:: Exit program
 :EXIT

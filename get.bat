@@ -42,10 +42,14 @@ GOTO EXIT
 
 :: Execute a command from a string
 :EXECUTE
-SET temp=%~1
-SET temp=%temp:"=%
-ECHO ^> %temp%
-%temp%
+:: Remove " from string
+SET command=%~1
+SET command=%command:"=%
+:: Print executing command
+ECHO ^> %command%
+@ECHO:
+:: Execute command
+%command%
 GOTO EXIT
 
 :: Display commands

@@ -33,6 +33,10 @@ IF %option%==dev (
 	:: Goto Scripts directory
 	SET dest=%script_dir%
 ) ELSE (
+IF %option%==~ (
+	:: Goto home
+	SET dest=%HOMEPATH%
+) ELSE (
 IF %option%==--help (
 	:: Print help info
 	GOTO HELP
@@ -40,7 +44,7 @@ IF %option%==--help (
 	:: Invalid arguments. Print help info
 	ECHO go: Invalid argument: "%option%"
 	GOTO HELP
-)))))
+))))))
 
 :: Navigate to path
 :DEFAULT
@@ -60,6 +64,7 @@ ECHO dm 	    %dm%
 ECHO ph 	    %ph%
 ECHO ps 	    %ps%
 ECHO dev 	    %script_dir%
+ECHO ~ 	    Go home
 ECHO ^<empty^>     Same as 'dm'
 @ECHO:
 ECHO -------------------------------

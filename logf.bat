@@ -2,7 +2,7 @@
 
 :: Define constants
 set jarFilePath="C:\Users\1020593\batch-script\logf-bin.jar"
-set inputFile="C:\Users\1020593\batch-script\input_logs.txt"
+set inputFile="%TEMP%\input_logs.txt"
 set textEditor="C:\Windows\system32\notepad.exe"
 
 :: Print info

@@ -20,10 +20,6 @@ break > %inputFile%
 :: Open text editor for getting logs
 %textEditor% %inputFile%
 
-@echo.
-echo Formatted log:
-@echo.
-
 :: Execute formatLog.jar
 java -jar %jarFilePath% %inputFile%
 

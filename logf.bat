@@ -1,7 +1,7 @@
 @echo off
 
 :: Define constants
-set jarFilePath="C:\Users\1020593\batch-script\formatLog.jar"
+set jarFilePath="C:\Users\1020593\batch-script\logf-bin.jar"
 set inputFile="input_logs.txt"
 set textEditor="C:\Program Files\Notepad++\notepad++.exe"
 

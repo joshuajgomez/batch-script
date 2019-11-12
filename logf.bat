@@ -1,3 +1,8 @@
+:: @file	logf.bat
+:: @brief	Formats logdog logs to single line simplified logs
+:: @req		logf-bin.jar
+:: @author	Joshua Gomez
+
 @echo off
 
 :: Define constants
@@ -11,7 +16,6 @@ echo ========================
 echo logf - LogFormatter tool
 echo ========================
 @echo.
-
 echo Paste logs to file, then save and close...
 
 :: Clear input file

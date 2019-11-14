@@ -2,6 +2,7 @@
 
 SET source=C:\Users\1020593\source\vendor\
 SET script_dir=C:\Users\1020593\batch-script\
+SET java_projects=C:\Users\1020593\eclipse-workspace
 
 :: Set path to projects
 SET dm=%source%quest\Phone\DeviceManagerService\
@@ -41,10 +42,14 @@ IF %option%==--help (
 	:: Print help info
 	GOTO HELP
 ) ELSE (
+	IF %option%==jdev (
+	:: Goto java projects dir
+	SET dest=%java_projects%
+) ELSE (
 	:: Invalid arguments. Print help info
 	ECHO go: Invalid argument: "%option%"
 	GOTO HELP
-))))))
+)))))))
 
 :: Navigate to path
 :DEFAULT

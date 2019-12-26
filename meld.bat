@@ -2,7 +2,7 @@
 
 :: Set variables
 set meld="C:\Program Files (x86)\Meld\Meld.exe"
-set source_project=C:\Users\1020593\source\vendor\quest\Phone\
+set source_project=D:\source\vendor\quest\Phone\
 set dest_project=C:\cygwin64\home\1020593\source\
 set dm=DeviceManagerService\
 set ph=PhoneHMI\

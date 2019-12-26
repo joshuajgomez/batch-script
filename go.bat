@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET source=C:\Users\1020593\source\vendor\
+SET source=D:\source\vendor\
 SET script_dir=C:\Users\1020593\batch-script\
 SET java_projects=C:\Users\1020593\eclipse-workspace\
 SET chatdaemon=C:\Users\1020593\josh-projects\android-projects\chatdaemon\
@@ -37,7 +37,7 @@ IF %option%==dev (
 ) ELSE (
 IF %option%==~ (
 	:: Goto home
-	SET dest=%HOMEPATH%
+	SET dest=C:\Users\1020593\
 ) ELSE (
 IF %option%==--help (
 	:: Print help info
@@ -60,7 +60,7 @@ IF %option%==c (
 :DEFAULT
 ECHO Going to %dest%
 @ECHO:
-CD %dest%
+CD /D %dest%
 GOTO EXIT
 
 :: Print help message

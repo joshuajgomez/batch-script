@@ -4,6 +4,7 @@ SET source=D:\source\vendor\
 SET script_dir=C:\Users\1020593\batch-script\
 SET java_projects=C:\Users\1020593\eclipse-workspace\
 SET chatdaemon=C:\Users\1020593\josh-projects\android-projects\chatdaemon\
+SET r1l=D:\r1l_data\
 
 :: Set path to projects
 SET dm=%source%quest\Phone\DeviceManagerService\
@@ -47,6 +48,12 @@ IF %option%==jdev (
 	:: Goto java projects dir
 	SET dest=%java_projects%
 ) ELSE (
+::::::::::::::::::::::: Copy this block to create new option - START - Ensure to add a ')' at that end of the 'IF ELSE' block
+IF %option%==r (
+	:: Goto r1l data folder
+	SET dest=%r1l%
+) ELSE (
+::::::::::::::::::::::: Copy this block to create new option - END - Ensure to add a ')' at that end of the 'IF ELSE' block
 IF %option%==c (
 	:: Goto android project: chatdaemon
 	SET dest=%chatdaemon%
@@ -54,7 +61,7 @@ IF %option%==c (
 	:: Invalid arguments. Print help info
 	ECHO go: Invalid argument: "%option%"
 	GOTO HELP
-))))))))
+)))))))))
 
 :: Navigate to path
 :DEFAULT
@@ -74,6 +81,7 @@ ECHO dm 	    %dm%
 ECHO ph 	    %ph%
 ECHO ps 	    %ps%
 ECHO dev 	    %script_dir%
+ECHO r 	    %r1l%
 ECHO ~ 	    Go home
 ECHO ^<empty^>     Same as 'dm'
 @ECHO:

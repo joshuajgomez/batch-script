@@ -1,5 +1,5 @@
 :: @file	t-c.bat
-:: @brief	Checks ticket list for duplicate entries
+:: @brief	Find tickets from input text and removes duplicate entries
 :: @req		ticket-compare-bin.jar
 :: @author	Joshua Gomez
 
@@ -13,19 +13,19 @@ set textEditor="C:\Windows\system32\notepad.exe"
 :: Print info
 @echo.
 echo ========================
-echo t-c - Ticket duplicate checking tool
+echo t-c - Ticket listing tool
 echo ========================
 @echo.
-echo Paste ticket list to file, then save and close...
+echo Paste text containing tickets to file, then save and close...
 @echo.
 
 :: Clear input file
 break > %inputFile%
 
-:: Open text editor for getting logs
+:: Open text editor for input
 %textEditor% %inputFile%
 
-:: Execute formatLog.jar
+:: Execute ticket-compare-bin.jar
 java -jar %jarFilePath% %inputFile%
 
 :: Delete input file

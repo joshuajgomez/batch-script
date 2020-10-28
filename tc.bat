@@ -1,12 +1,12 @@
-:: @file	t-c.bat
+:: @file	tc.bat
 :: @brief	Find tickets from input text and removes duplicate entries
-:: @req		ticket-compare-bin.jar
+:: @req		tc-bin.jar
 :: @author	Joshua Gomez
 
 @echo off
 
 :: Define constants
-set jarFilePath="C:\Users\1020593\batch-script\ticket-compare-bin.jar"
+set jarFilePath="C:\Users\1020593\batch-script\tc-bin.jar"
 set inputFile="%TEMP%\input_ticket_list.txt"
 set textEditor="C:\Windows\system32\notepad.exe"
 
@@ -25,7 +25,7 @@ break > %inputFile%
 :: Open text editor for input
 %textEditor% %inputFile%
 
-:: Execute ticket-compare-bin.jar
+:: Execute tc-bin.jar
 java -jar %jarFilePath% %inputFile%
 
 :: Delete input file

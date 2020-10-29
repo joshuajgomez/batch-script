@@ -13,7 +13,7 @@ set textEditor="C:\Windows\system32\notepad.exe"
 :: Print info
 @echo.
 echo ========================
-echo t-c - Ticket listing tool
+echo tc - Ticket listing tool
 echo ========================
 @echo.
 echo Paste text containing tickets to file, then save and close...

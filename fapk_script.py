@@ -8,7 +8,6 @@ import sys
 from shutil import copyfile # for copying files
 from shutil import SameFileError # for copying files
 import shutil
-import time
 
 # get tar file from agument
 tarFile = sys.argv[1]
